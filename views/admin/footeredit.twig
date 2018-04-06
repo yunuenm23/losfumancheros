@@ -1,0 +1,61 @@
+{% extends 'layoutAdminExtra.twig' %}
+
+{% block footeredit %}
+
+<div class="container white">
+	<div class="row  py-5">
+		<h2>Pie de Página</h2>
+		<div class="col-12 d-flex justify-content-start">
+			<a class="btn btn-danger mx-1" href="{{ 'admin/footer' | url }}">
+				<i class="fas fa-undo fa-2x"></i>
+			</a>
+			<a class="btn btn-danger mx-1" href="{{ 'admin' | url }}">
+				<i class="fas fa-home fa-2x"></i>
+			</a>
+		</div>
+
+		<div class="col-sm-12">
+			<div class="" id="footer">
+			{% for footers in footer %}
+				<form method="post" class="white my-3 p-3" enctype="multipart/form-data">
+					<h3 class="bolder">Editar</h3>
+
+					<div class="form-group">
+						<h4>Contrataciones</h4>
+						<input type="text" class="form-control" name="hiring" placeholder="Contrataciones" value="{{ footers.hiring }}" onblur="may(this.value, this.id)">
+					</div>
+					<div class="form-group">
+						<h4>Ciudad</h4>
+						<input type="text" class="form-control" name="city" placeholder="Ciudad" value="{{ footers.city }}" onblur="may(this.value, this.id)">
+					</div>
+					<div class="form-group">
+						<h4>Facebook</h4>
+						<input type="text" class="form-control" name="facebook" placeholder="Url de facebook" value="{{ footers.facebook }}" onblur="may(this.value, this.id)">
+					</div>
+					<div class="form-group">
+						<h4>Twitter</h4>
+						<input type="text" class="form-control" name="twitter" placeholder="Url de twitter" value="{{ footers.twitter }}" onblur="may(this.value, this.id)">
+					</div>
+					<div class="form-group">
+						<h4>Youtube</h4>
+						<input type="text" class="form-control" name="youtube" placeholder="Url de youtube" value="{{ footers.youtube }}" onblur="may(this.value, this.id)">
+					</div>
+					<div class="form-group">
+						<h4>Instagram</h4>
+						<input type="text" class="form-control" name="instagram" placeholder="Url instagram" value="{{ footers.instagram }}" onblur="may(this.value, this.id)">
+					</div>
+					<div class="form-group">
+						<h4>Desarollador del sitio</h4>
+						<input type="text" class="form-control" name="developer" placeholder="Desarrollador del sitio" value="{{ footers.developer }}" onblur="may(this.value, this.id)">
+					</div>
+					<input type="hidden" name="id" value="{{ footers.id }}">
+					<button type="submit" class="btn btn-danger text-uppercase"><h4>Guardar</h4></button>
+				</form>
+			{% endfor %}
+			</div>
+		</div>
+
+	</div>
+</div>
+
+{% endblock %}

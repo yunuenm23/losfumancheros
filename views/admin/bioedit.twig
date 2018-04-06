@@ -1,0 +1,56 @@
+{% extends 'layoutAdminExtra.twig' %}
+
+{% block useredit %}
+
+<div class="container">
+	{% for bio in biography %}
+
+	<div class="white col-12 py-2">
+		<div class="col-12 d-flex justify-content-start">
+			<a class="btn btn-danger mx-1" href="{{ 'admin/bio' | url }}">
+				<i class="fas fa-undo fa-2x"></i>
+			</a>
+			<a class="btn btn-danger mx-1" href="{{ 'admin' | url }}">
+				<i class="fas fa-home fa-2x"></i>
+			</a>
+		</div>
+		<form method="post" class="p-3" enctype="multipart/form-data">
+			<h3 class="mb-3">Editar biografía</h3>
+			<div class="form-group">
+				<h4>Nombre sección</h4>
+				<input type="text" class="form-control" name="section" placeholder="Sección" value="{{ bio.section }}" onblur="may(this.value, this.id)">
+			</div>
+			<div class="form-group">
+				<h4>Titulo</h4>
+				<input type="text" class="form-control" name="title" placeholder="Titulo" value="{{ bio.title }}" onblur="may(this.value, this.id)">
+			</div>
+			<div class="form-group">
+				<h4>Decsripción</h4>
+				<textarea id="editor1" name="text" rows="25" class="p-4">{{ bio.text }}</textarea>
+				<script>
+				    CKEDITOR.replace( 'editor1' );
+				</script>
+			</div>
+			<div class="form-group">
+				<div class="d-flex flex-column">
+				    <h4 class="text-dark py-2">Imagen actual:</h4>
+				    <img class="cursor py-2" src="../../../{{ bio.band }}" width="50%" data-toggle="modal" data-target="#carousel">
+				      	<!-- Modal -->
+				      	<div class="modal fade" id="carousel" tabindex="-1" role="dialog" aria-hidden="true">
+				        	<div class="modal-dialog modal-dialog-centered  modal-lg" role="document">
+				          		<img class="p-1 white" src="../../../{{ bio.band }}" width="100%">
+				        	</div>
+				      	</div>
+				   </div>
+				  <h4 class="text-danger">Tamaño recomendado: 540 x 520</h4>
+				<input type="file" class="form-control" name="band">
+			</div>
+			<input type="hidden" name="id" value="{{ bio.id }}"></input>
+			<button type="submit" class="btn btn-danger text-uppercase"><h4>Guardar</h4></button>
+		</form>
+	
+	</div>
+	{% endfor %}
+</div>
+
+{% endblock %}

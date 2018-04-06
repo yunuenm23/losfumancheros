@@ -1,0 +1,101 @@
+
+@font-face {
+    font-family: "AlegreSans";
+    src: url(fonts/AlegreSans.ttf) format("truetype");
+}
+@font-face {
+    font-family: "GeosansLight";
+    src: url(fonts/GeosansLight.ttf) format("truetype");
+}
+body{
+	font-family: 'AlegreSans', sans-serif;
+}
+
+
+
+
+.admin-panel{
+	background-color: var(--dark);
+}
+.link-menu{
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	border-bottom: 1px solid var(--yellow);
+}
+.link-menu a{
+	color: var(--white);
+	font-size: 1em;
+	text-transform: uppercase;
+}
+body{
+  background-color: var(--white);
+}
+.link-menu a span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.link-menu a span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.link-menu a:hover span {
+  padding-right: 25px;
+}
+
+.link-menu a:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+
+.box-user{
+  box-shadow: 0 10px 10px rgba(0,0,0,.2);
+}
+.box-user  .user-img{
+  padding: 3px;
+  border:2px solid var(--yellow);
+  background-color: var(--light);
+  transition: .3s ease-in;
+}
+.box-user  .user-img:hover{
+  border:2px solid var(--light);
+  background-color: var(--light);
+}
+
+.form-control{
+  font-family: 'Segoe UI';
+}
+.img-profile{
+  width: 150px;
+  height: 150px;
+}
+
+
+.btn-admin{
+  color: var(--green);
+  width: 150px;
+  height: 150px;
+  border-radius: 50pc;
+  padding: 30px;
+  background-color: var(--white);
+}
+.btn-admin:hover{
+  width: 120px;
+  height: 120px;
+  font-size: .8em;
+  color: var(--white);
+  background-color: var(--green);
+}
+.head{
+  width: 100%;
+  background-color: var(--light);
+}

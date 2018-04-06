@@ -1,0 +1,50 @@
+{% extends 'layoutAdminExtends.twig' %}
+
+{% block footer %}
+
+<div class="container white">
+	<div class="row  py-5">
+		<h2>Pie de Página</h2>
+		<div class="col-12 d-flex justify-content-start">
+			<a class="btn btn-danger mx-1" href="{{ 'admin' | url }}">
+				<i class="fas fa-undo fa-2x"></i>
+			</a>
+			<a class="btn btn-danger mx-1" href="{{ 'admin' | url }}">
+				<i class="fas fa-home fa-2x"></i>
+			</a>
+		</div>
+
+		<div class="col-sm-12 py-3">
+			<table class="table table-hover white">
+			  <thead class="thead-light">
+			    <tr class="text-center">
+			    	<th scope="col"><h4>CONTRATACIONES</h4></th>
+			      	<th scope="col"><h4>CIUDAD</h4></th>
+			      	<th scope="col"><h4><i class="fab fa-facebook"></i></h4></th>
+			      	<th scope="col"><h4><i class="fab fa-twitter"></i></h4></th>
+			      	<th scope="col"><h4><i class="fab fa-youtube"></i></h4></th>
+			      	<th scope="col"><h4><i class="fab fa-instagram"></i></h4></th>
+			      	<th scope="col"><h4>DESARROLLADOR</h4></th>
+			      	<th scope="col"><h4>MODIFICAR</h4></th>
+			    </tr>
+			  </thead>
+			  <tbody class="text-dark">
+				{% for footers in footer %}
+				<tr>
+					<td><p>{{ footers.hiring }}</p></td>
+					<td><p>{{ footers.ciudad }}</p></td>
+					<td><p>{{ footers.facebook }}</p></td>
+					<td><p>{{ footers.twitter }}</p></td>
+					<td><p>{{ footers.youtube }}</p></td>
+					<td><p>{{ footers.instagram }}</p></td>
+					<td><p>{{ footers.developer }}</p></td>
+					<td><a href="{{'admin/footer/footeredit/' | url }}{{ footers.id }}"><i class="text-green far fa-edit fa-2x"></i></a></td>
+				</tr>
+				{% endfor %}
+			  </tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

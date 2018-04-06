@@ -1,0 +1,72 @@
+{% extends 'layoutAdminExtra.twig' %}
+
+{% block editarnoticias %}
+
+<div class="container white">
+	<div class="row  py-5">
+		<div class="col-12 d-flex justify-content-start">
+			<a class="btn btn-danger mx-1" href="{{ 'admin/noticias' | url }}">
+				<i class="fas fa-undo fa-2x"></i>
+			</a>
+			<a class="btn btn-danger mx-1" href="{{ 'admin' | url }}">
+				<i class="fas fa-home fa-2x"></i>
+			</a>
+		</div>
+		<div class="col-12">
+			{% for noticias in noticia %}
+				<form method="post" class="white my-3 p-3" enctype="multipart/form-data">
+					<h3 class="bolder">Editar crónica</h3>
+
+					<div class="form-group">
+						<h4>Titulo</h4>
+						<input type="text" class="form-control" name="title" placeholder="Titulo de la publicación" value="{{ noticias.title }}" onblur="may(this.value, this.id)">
+					</div>
+
+					<div class="form-group">
+						<h4>Tweet, texto que se muestra al compartir en Twitter</h4>
+						<input type="text" class="form-control" name="tweet" placeholder="Tweet" value="{{ noticias.tweet }}">
+					</div>
+
+					<div class="form-group">
+						<h4>Fecha</h4>
+						<input type="date" class="form-control" name="date" placeholder="Fecha" value="{{ noticias.date }}" onblur="may(this.value, this.id)">
+					</div>
+
+					<div class="form-group">
+						<h4>Descripción</h4>
+						<textarea id="editor1" name="description" rows="25" class="p-4">{{ noticias.description }}</textarea>
+						<script>
+						    CKEDITOR.replace( 'editor1' );
+						</script>
+					</div>
+
+					<div class="form-group">
+						<h4>Código de Youtube</h4>
+						<input type="text" class="form-control" name="video" placeholder="Código de Youtube" value="{{ noticias.video }}">
+					</div>
+
+					<div class="d-flex flex-column">
+				        <h4 class="text-dark py-2">Imagen actual:</h4>
+				        <img class="cursor py-2" src="../../../{{ noticias.thumb }}" width="50%" data-toggle="modal" data-target="#carousel">
+				      	<!-- Modal -->
+				      	<div class="modal fade" id="carousel" tabindex="-1" role="dialog" aria-hidden="true">
+				        	<div class="modal-dialog modal-dialog-centered  modal-lg" role="document">
+				          		<img class="p-1 white" src="../../../{{ noticias.thumb }}" width="100%">
+				        	</div>
+				      	</div>
+				    </div>
+
+					<div class="form-group">
+						<h4 class="text-danger">TAMAÑO RECOMENDADO 800 X 600</h4>
+						<input type="file" class="form-control" id="image" name="image">
+					</div>
+
+					<input type="hidden" name="id" value="{{ noticias.id }}">
+					<button type="submit" class="btn btn-danger text-uppercase"><h4>Guardar</h4></button>
+				</form>
+			{% endfor %}
+		</div>
+	</div>
+</div>
+
+{% endblock %}

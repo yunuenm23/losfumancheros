@@ -1,0 +1,28 @@
+{
+	"songs":[
+		{
+			"id":0,
+			"name":"álbum",
+			"song":"http://abarcarodriguez.com/365/files/rainbow.mp3",
+			"imagen":"images/albums/cumbianolimit.jpg"
+		},
+		{
+			"id":0,
+			"name":"álbum",
+			"song":"http://abarcarodriguez.com/365/files/rainbow.mp3",
+			"image":"images/albums/cumbianolimit.jpg"
+		},
+		{
+			"id":0,
+			"name":"álbum",
+			"song":"http://abarcarodriguez.com/365/files/rainbow.mp3",
+			"image":"images/albums/cumbianolimit.jpg"
+		},
+		{
+			"id":0,
+			"name":"álbum",
+			"song":"http://abarcarodriguez.com/365/files/rainbow.mp3",
+			"image":"images/albums/cumbianolimit.jpg"
+		}
+	]
+}

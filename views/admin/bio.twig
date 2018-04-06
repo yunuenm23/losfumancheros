@@ -1,0 +1,46 @@
+{% extends 'layoutAdminExtends.twig' %}
+
+{% block bio %}
+
+<div class="container white">
+	<div class="row  py-5">
+		<h2>Biografía</h2>
+		<div class="col-12 d-flex justify-content-start">
+			<a class="btn btn-danger mx-1" href="{{ 'admin' | url }}">
+				<i class="fas fa-undo fa-2x"></i>
+			</a>
+			<a class="btn btn-danger mx-1" href="{{ 'admin' | url }}">
+				<i class="fas fa-home fa-2x"></i>
+			</a>
+		</div>
+
+		<div class="col-12 py-3">
+			<table class="table table-hover white">
+			  <thead class="thead-light">
+			    <tr class="text-center">
+			      <th scope="col"><h4>SECCCION</h4></th>
+			      <th scope="col"><h4>TITULO</h4></th>
+			      <th scope="col"><h4>TEXTO</h4></th>
+			      <th scope="col"><h4>FOTO</h4></th>
+			      <th scope="col"><h4>EDITAR</h4></th>
+			    </tr>
+			  </thead>
+			  <tbody class="text-dark">
+				{% for bio in biography %}
+				<tr>
+					<td><h4>{{ bio.section }}</h4></td>
+			  		<td><h4>{{ bio.title }}</h4></td>
+			  		<td><p>{{ bio.text|raw }}</p></td>
+			  		<td><a><img src="../{{ bio.band }}" width="100px"></a></td>
+			  		<td>
+			  			<a class="text-success" href="{{'admin/bio/bioedit/' | url }}{{ bio.id }}"><i class="far fa-edit fa-2x"></i></a>
+			  		</td>
+				</tr>
+				{% endfor %}
+			  </tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

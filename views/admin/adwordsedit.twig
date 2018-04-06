@@ -1,0 +1,33 @@
+{% extends 'layoutAdminExtra.twig' %}
+
+{% block adwordsedit %}
+
+<div class="container white">
+	<div class="row  py-5">
+		<div class="col-12 d-flex justify-content-start">
+			<a class="btn btn-danger mx-1" href="{{ 'admin/adwords' | url }}">
+				<i class="fas fa-undo fa-2x"></i>
+			</a>
+			<a class="btn btn-danger mx-1" href="{{ 'admin' | url }}">
+				<i class="fas fa-home fa-2x"></i>
+			</a>
+		</div>
+		<div class="col-12">
+			<div class="" id="newuser">
+				{% for adword in adwords %}
+				<form method="post" class="white my-3 p-3" enctype="multipart/form-data">
+					<h3 class="">Editar anuncio</h3>
+					<div class="form-group">
+						<textarea  rows="4" class="form-control" name="script" placeholder="Script de Google Adwords">{{ adword.script}}</textarea>
+					</div>
+					<button type="submit" class="btn btn-danger text-uppercase"><h4>Guardar</h4></button>
+				</form>
+				{% endfor %}
+			</div>
+		</div>
+
+	
+	</div>
+</div>
+
+{% endblock %}

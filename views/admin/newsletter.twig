@@ -1,0 +1,47 @@
+{% extends 'layoutAdminExtends.twig' %}
+
+{% block newsletter %}
+
+<div class="container white">
+	<div class="row  py-5">
+		<h2>Newsletter</h2>
+		<div class="col-sm-12 d-flex justify-content-start">
+			<a class="btn btn-danger mx-1" href="{{ 'admin' | url }}">
+				<i class="fas fa-undo fa-2x"></i>
+			</a>
+			<a class="btn btn-danger mx-1" href="{{ 'admin' | url }}">
+				<i class="fas fa-home fa-2x"></i>
+			</a>
+			<a class="btn btn-warning mx-1 d-flex" href="{{ 'admin/mail' | url }}">
+				<h4 class="mx-1">Nuevo correo</h4><i class="far fa-envelope fa-2x"></i>
+			</a>
+		</div>
+
+		<div class="col-sm-12 py-3">
+			<table class="table table-hover white">
+			  <thead class="thead-light">
+			    <tr>
+			    	<th scope="col"><h4>CORREO</h4></th>
+						<th scope="col"><h4>NOMBRE</h4></th>
+						<th scope="col"><h4>CIUDAD</h4></th>
+						<th scope="col"><h4>ALTA</h4></th>
+			      <th scope="col"><h4>ELIMINAR</h4></th>
+			    </tr>
+			  </thead>
+			  <tbody class="text-dark">
+				{% for newsletters in newsletter %}
+				<tr>
+					<td><p>{{ newsletters.email }}</p></td>
+					<td><p>{{ newsletters.name }}</p></td>
+					<td><p>{{ newsletters.city }}</p></td>
+					<td><p>{{ newsletters.created_at }}</p></td>
+					<td><a href="{{'admin/newsletter/delete/' | url }}{{ newsletters.id }}"><i class="text-danger far fa-times-circle fa-2x text-red"></i></a></td>
+				</tr>
+				{% endfor %}
+			  </tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{
+	"autoload": {
+		"psr-4": {
+			"App\\": "app/"
+		} 
+	},
+	"require": {
+		"phroute/phroute": "^2.1",
+		"twig/twig": "~1.0",
+		"illuminate/database": "^5.4",
+		"vlucas/phpdotenv": "^2.4",
+		"siriusphp/validation": "^2.2",
+		"siriusphp/upload": "^2.1",
+		"phpmailer/phpmailer": "^6.0",
+		"mandrill/mandrill": "^1.0"
+	}
+}

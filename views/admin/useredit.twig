@@ -1,0 +1,57 @@
+{% extends 'layoutAdminExtra.twig' %}
+
+{% block useredit %}
+<div class="container">
+	{% for user in users %}
+	<div class="white col-12 py-5">
+		<div class="col-12 d-flex justify-content-start">
+			<a class="btn btn-danger mx-1" href="{{ 'admin/users' | url }}">
+				<i class="fas fa-undo fa-2x"></i>
+			</a>
+			<a class="btn btn-danger mx-1" href="{{ 'admin' | url }}">
+				<i class="fas fa-home fa-2x"></i>
+			</a>
+		</div>
+		<div class="box-user d-flex flex-column justify-content-center align-items-center text-center py-2">
+			<div class="img-profile">
+				<img class="rounded-circle user-img" src="../../../{{ user.profile_photo }}" width="100%" height="100%" alt="profile-user">
+		</div>
+			<h3 class="text-warning">{{ user.username }}</h3>
+			<h4 class="text-dark">{{ user.email }}</h4>
+		</div>
+		<div class="white">
+			<form method="post" class="p-3" enctype="multipart/form-data">
+				<h3 class="mb-3">Editar usuario</h3>
+				<div class="form-group">
+					<h4>Nombre de usuario</h4>
+					<input type="text" class="form-control" id="user" name="username" placeholder="Usuario" value="{{ user.username }}" onblur="may(this.value, this.id)" required>
+				</div>
+				<div class="form-group">
+					<h4>Nombre</h4>
+					<input type="text" class="form-control" id="name" name="name" placeholder="Nombre" value="{{ user.name }}" onblur="may(this.value, this.id)">
+				</div>
+				<div class="form-group">
+					<h4>Apellido</h4>
+					<input type="text" class="form-control" id="lastname" name="lastname" placeholder="Apellido" value="{{ user.lastname }}" onblur="may(this.value, this.id)">
+				</div>
+				
+				<div class="form-group">
+					<h4>Correo:</h4>
+					<input type="email" class="form-control" id="email" name="email" value="{{ user.email }}" placeholder="Correo" required>
+				</div>
+				<div class="form-group">
+					<h4>Contraseña</h4>
+					<input type="password" class="form-control" id="password" name="password" value="{{ user.password }}" placeholder="Contraseña" required>
+				</div>
+				<div class="form-group">
+					<input type="file" class="form-control" id="profilePhoto" name="profilePhoto">
+				</div>
+				<input type="hidden" name="id" value="{{ user.id }}"></input>
+				<button type="submit" class="btn btn-danger text-uppercase"><h4>Guardar</h4></button>
+			</form>
+		</div>
+	
+	</div>
+	{% endfor %}
+</div>
+{% endblock %}

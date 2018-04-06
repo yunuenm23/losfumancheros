@@ -1,0 +1,93 @@
+{% extends 'layoutAdminExtra.twig' %}
+
+{% block albumedit %}
+
+<div class="container white">
+	<div class="row  py-5">
+		<div class="col-12 d-flex justify-content-start">
+			<a class="btn btn-danger mx-1" href="{{ 'admin/album' | url }}">
+				<i class="fas fa-undo fa-2x"></i>
+			</a>
+			<a class="btn btn-danger mx-1" href="{{ 'admin' | url }}">
+				<i class="fas fa-home fa-2x"></i>
+			</a>
+		</div>
+		<div class="col-12">
+			{% for albums in album %}
+			<div class="" id="newuser">
+				<form method="post" class="white my-3 p-3" enctype="multipart/form-data">
+					<h3 class="bolder">Editar álbum</h3>
+					<div class="form-group">
+						<h4>Año</h4>
+						<input type="text" class="form-control" name="year" placeholder="Año" value="{{ albums.year }}" onblur="may(this.value, this.id)">
+					</div>
+					<div class="form-group">
+						<h4>Titulo</h4>
+						<input type="text" class="form-control" name="title" placeholder="Titulo" value="{{ albums.title }}" onblur="may(this.value, this.id)">
+					</div>
+					<div class="form-group">
+						<h4>Producción</h4>
+						<input type="text" class="form-control" name="production" placeholder="Producción" value="{{ albums.production }}" onblur="may(this.value, this.id)">
+					</div>
+					<div class="form-group">
+						<h4>Descripción</h4>
+						<textarea id="editor1" name="description" rows="25" class="p-4">{{ albums.description }}</textarea>
+						<script>
+						    CKEDITOR.replace( 'editor1' );
+						</script>
+					</div>
+
+					<div class="d-flex flex-column">
+				        <h4 class="text-dark py-2">Imagen actual:</h4><h4 class="text-danger">TAMAÑO RECOMENDADO: 400 X 400</h4>
+				        <img class="cursor py-2" src="../../../{{ albums.album_img }}" width="50%" data-toggle="modal" data-target="#carousel">
+				      	<!-- Modal -->
+				      	<div class="modal fade" id="carousel" tabindex="-1" role="dialog" aria-hidden="true">
+				        	<div class="modal-dialog modal-dialog-centered  modal-lg" role="document">
+				          		<img class="p-1 white" src="../../../{{ albums.album_img }}" width="100%">
+				        	</div>
+				      	</div>
+				    </div>
+				    <h4>Portada de álbum</h4>
+					<div class="form-group py-1">
+						<input type="file" class="form-control" name="album" value="{{ albums.album }}">
+					</div>
+
+					<div class="d-flex flex-column">
+				        <h4 class="text-dark py-2">Imagen actual:</h4><h4 class="text-danger">TAMAÑO RECOMENDADO: 1980 X 1080</h4>
+				        <img class="cursor py-2" src="../../../{{ albums.bg_album }}" width="50%" data-toggle="modal" data-target="#carousel">
+				      	<!-- Modal -->
+				      	<div class="modal fade" id="carousel" tabindex="-1" role="dialog" aria-hidden="true">
+				        	<div class="modal-dialog modal-dialog-centered  modal-lg" role="document">
+				          		<img class="p-1 white" src="../../../" width="100%">
+				        	</div>
+				      	</div>
+				    </div>
+					<h4>Fondo de portada</h4>
+					<div class="form-group py-1">
+						<input type="file" class="form-control" name="bgalbum" value="{{ albums.bg_album }}">
+					</div>
+
+					<div class="form-group">
+						<input type="text" class="form-control" name="spotify" value="{{ albums.spotify }}" placeholder="Url de spotify" required>
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control" name="paypal" value="{{ albums.paypal }}" placeholder="Url de paypal" required>
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control" name="amazon" value="{{ albums.amazon }}" placeholder="Url de amazon" required>
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control" name="apple" value="{{ albums.apple }}" placeholder="Url de apple" required>
+					</div>
+
+					<input type="hidden" name="id" value="{{ albums.id }}"></input>
+					<button type="submit" class="btn btn-danger text-uppercase"><h4>Guardar</h4></button>
+				</form>
+			</div>
+			{% endfor %}
+		</div>
+
+	</div>
+</div>
+
+{% endblock %}

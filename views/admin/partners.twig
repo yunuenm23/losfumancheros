@@ -1,0 +1,62 @@
+{% extends 'layoutAdminExtends.twig' %}
+
+{% block partners %}
+
+<div class="container white">
+	<div class="row  py-5">
+		<h2>Patrocinadores</h2>
+		<div class="col-12 d-flex justify-content-start">
+			<a class="btn btn-danger mx-1" href="{{ 'admin' | url }}">
+				<i class="fas fa-undo fa-2x"></i>
+			</a>
+			<a class="btn btn-danger mx-1" href="{{ 'admin' | url }}">
+				<i class="fas fa-home fa-2x"></i>
+			</a>
+			<a class="btn btn-danger mx-1" data-toggle="collapse" href="#newuser" role="button" aria-expanded="false" aria-controls="collapseExample">
+				<i class="fas fa-image fa-2x"></i>
+			</a>
+		</div>
+		<div class="col-12">
+			<div class="collapse" id="newuser">
+				<form method="post" class="white my-3 p-3" enctype="multipart/form-data">
+					<h3 class="bolder">Nuevo Patrocinador</h3>
+					<div class="form-group">
+						<h4>Url</h4>
+						<input type="text" class="form-control" name="url" placeholder="Dirección a consultar" onblur="may(this.value, this.id)">
+					</div>
+					<div class="form-group">
+						<h4>Subir imagen:</h4>
+						<h4 class="text-danger">Tamaño recomendado: 380 x 170</h4>
+						<input type="file" class="form-control" name="logo" required>
+					</div>
+					<button type="submit" class="btn btn-danger text-uppercase"><i class="fas fa-plus"></i></button>
+				</form>
+			</div>
+		</div>
+
+		<div class="col-12 py-3">
+			<table class="table table-hover white">
+			  <thead class="thead-light">
+			    <tr>
+			      <th scope="col"><h4>URL</h4></th>
+			      <th scope="col"><h4>LOGO</h4></th>
+			      <th scope="col"><h4>EDITAR</h4></th>
+			      <th scope="col"><h4>ELIMINAR</h4></th>
+			    </tr>
+			  </thead>
+			  <tbody class="text-dark">
+				{% for partners in partner %}
+				<tr>
+					<td>{{ partners.url }}</td>
+			  		<td><a><img src="../{{ partners.logo }}" width="150px"></a></td>
+			  		<td><a href="{{'admin/partners/partnersedit/' | url }}{{ partners.id }}"><i class="text-green far fa-edit fa-2x"></i></a></td>
+			  		<td><a href="{{'admin/partners/delete/' | url }}{{ partners.id }}"><i class="text-danger far fa-times-circle fa-2x text-red"></i></a></td>
+				</tr>
+				{% endfor %}
+			  </tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

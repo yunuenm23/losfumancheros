@@ -1,0 +1,1096 @@
+*{
+	margin-bottom: 0;
+	padding-left: 0;
+}
+body{
+	background-color: var(--dark);
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+
+	background-size: contain;
+}
+@font-face {
+    font-family: "AlegreSans";
+    src: url(fonts/AlegreSans.ttf) format("truetype");
+}
+@font-face {
+    font-family: "GeosansLight";
+    src: url(fonts/GeosansLight.ttf) format("truetype");
+}
+@font-face {
+    font-family: "FjallaOne";
+    src: url(fonts/FjallaOne.ttf) format("truetype");
+}
+/*GENERALES*/
+.cursor{
+	cursor: pointer;
+}
+.bg-contenedor{
+	width: 100%;
+	height: 100%;
+	background-image: url("../images/people.jpg");
+	background-repeat: repeat;
+	background-attachment: fixed;
+	background-position: center;
+}
+h1, h2, h3, h4, h5{
+	font-family: 'AlegreSans', 'sans-serif';
+}
+h1{
+	font-size: 3.3em;
+	text-transform: uppercase;
+}
+h2{
+	font-size: 2.8em;
+	text-transform: uppercase;
+}
+h3{
+	font-size: 2.5em;
+	text-transform: uppercase;
+}
+p{
+	font-family: 'GeosansLight';
+	font-size: 1.2em;
+}
+
+
+.logo{
+	width: 145px;
+}
+.titulo{
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+}
+.text-yellowdark{
+	color: var(--yellowdark);
+}
+.text-yellow{
+	color: var(--yellow);
+}
+
+.text-shadow{
+	text-shadow: 0 0 10px rgba(0,0,0,.5);
+}
+.box-shadow{
+	box-shadow: 0 0 5px rgba(0,0,0,.5);
+}
+.box-top-shadow{
+	box-shadow: 0 10px rgba(0,0,0,.5);
+}
+.box-bottom-shadow{
+	box-shadow: 0 -10px rgba(0,0,0,.5);
+}
+
+
+/*COLORES DE FONDOS*/
+.dark{
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,.9);
+}
+.white{
+	background-color: var(--white);
+}
+.light{
+	background-color: var(--light);
+}
+.red{
+	height: 100%;
+	background-color: var(--red);
+}
+.green{
+	background-color: var(--green);
+}
+.text-green{
+	color: var(--green);
+}
+.cerrar{
+	color: var(--white);
+	cursor: pointer;
+	transition: .3s ease-in-out;
+}
+.cerrar:hover{
+	color: var(--red);
+}
+
+
+
+
+
+
+/*BOTONES*/
+.btn-chronicle{
+	border-radius: 5px;
+	background-color: var(--yellow);
+	padding-left: 30px;
+	padding-right: 30px;
+	color: var(--dark);
+}
+.btn-chronicle:hover{
+	background-color: var(--yellowdark);
+	color: var(--dark);
+}
+.btn-onlytext{
+	color: var(--white);
+	font-family: 'AlegreSans';
+	font-size: 1.4em;
+	background-color: transparent;
+	padding-left: 10px;
+	padding-right: 10px;
+	transition: .3s ease-in-out;
+}
+.btn-onlytext span {
+	font-size: 1.4em;
+  	cursor: pointer;
+  	display: inline-block;
+  	position: relative;
+  	transition: 0.5s;
+}
+.btn-onlytext span:after {
+	color: var(--green);
+  	content: '\00bb';
+  	position: absolute;
+  	opacity: 0;
+  	top: 0;
+  	right: -20px;
+  	transition: 0.5s;
+}
+.btn-onlytext:hover span {
+	color: var(--green);
+  	padding-right: 25px;
+}
+
+.btn-onlytext:hover span:after {
+	color: var(--green);
+  	opacity: 1;
+  	right: 0;
+}
+.btn-banda{
+	background-color: var(--white);
+	border: 1px solid var(--dark);
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-right: 50px;
+	padding-left: 50px;
+	border-radius: 50px;
+	color: var(--dark);
+	transition: .3s ease-in-out;
+}
+.btn-banda:hover{
+	background-color: var(--yellow);
+	border: 1px solid var(--yellowdark);
+	color: var(--white);
+}
+.btn-banda:focus{
+	background-color: var(--green);
+	border: 1px solid var(--greendark);
+	color: var(--white);
+}
+.btn-musica{
+	background-color: var(--white);
+	border: 1px solid var(--dark);
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-right: 50px;
+	padding-left: 50px;
+	color: var(--dark);
+	transition: .3s ease-in-out;
+}
+.btn-musica:hover{
+	background-color: var(--green);
+	border: 1px solid var(--greendark);
+	color: var(--white);
+}
+.btn-musica:focus{
+	background-color: var(--green);
+	border: 1px solid var(--greendark);
+	color: var(--white);
+}
+.btn-videos{
+	background-color: var(--white);
+	border: 1px solid var(--dark);
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-right: 50px;
+	padding-left: 50px;
+	border-radius: 0px 50px 50px 0px;
+	color: var(--dark);
+	transition: .3s ease-in-out;
+}
+.btn-videos:hover{
+	background-color: var(--yellow);
+	border: 1px solid var(--yellowdark);
+	color: var(--white);
+}
+.myBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    color: var(--yellow);
+    background-color: transparent;
+    cursor: pointer;
+    padding: 15px;
+    font-size: 18px;
+    transition: .3s ease-in-out;
+}
+.myBtn:hover {
+	color: var(--green);
+    background-color: transparent;
+}
+.btn-slide{
+	width: 40%;
+	font-family: 'GeosansLight', sans-serif;
+	color: var(--white);
+	background-color: rgba(0,0,0,.5);
+	padding-left: 10px;
+	font-size: 1em;
+	padding-right: 10px;
+	text-transform: uppercase;
+	border: 2px solid var(--green);
+	border-radius: 50px;
+	transition: .3s ease-in-out;
+}
+.btn-slide:hover{
+	width: 50%;
+	color: var(--dark);
+	background-color: rgba(255,255,255,.8);
+	border: 2px solid var(--green);
+}
+.ir-arriba {
+	display:none;
+	padding:20px;
+	background:#024959;
+	font-size:20px;
+	color:#fff;
+	cursor:pointer;
+	position: fixed;
+	bottom:20px;
+	right:20px;
+}
+
+
+
+
+
+/*HEADER*/
+#scrollingmenu{
+	transition: .4s ease-in-out;
+}
+.bg-menu{
+	background-color: rgba(0,0,0,.5);
+	box-shadow: 0 5px 5px rgba(0,0,0,.2);
+}
+.contacto{
+	background-color: var(--dark);
+}
+.form-contacto{
+	background-color: rgba(0,0,0,.7);
+	color: var(--white);
+}
+.form-contacto-group{
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.form-contacto input{
+	width: 50%;
+	border: none;
+	border-bottom: 1px solid rgba(255,255,255,1);
+	color: var(--white);
+	margin-left: 5px;
+	margin-right: 5px;
+	padding: 7px;
+	background-color: rgba(255,255,255,.2);
+	transition: .3s ease-in-out;
+}
+.form-contacto input:hover{
+	width: 100%;
+	border: none;
+	border-bottom: 1px solid rgba(255,255,255,1);
+	background-color: rgba(255,255,255,.1);
+}
+.form-contacto input:focus{
+	width: 100%;
+	border: none;
+	border-bottom: 1px solid var(--green);
+	background-color: rgba(255,255,255,.2);
+}
+.form-contacto textarea{
+	width: 50%;
+	border: none;
+	border-bottom: 1px solid rgba(255,255,255,1);
+	color: var(--white);
+	margin-left: 5px;
+	margin-right: 5px;
+	padding: 7px;
+	background-color: rgba(255,255,255,.2);
+	transition: .3s ease-in-out;
+}
+.form-contacto textarea:hover{
+	width: 100%;
+	border: none;
+	border-bottom: 1px solid rgba(255,255,255,1);
+	background-color: rgba(255,255,255,.1);
+}
+.form-contacto textarea:focus{
+	width: 100%;
+	border: none;
+	border-bottom: 1px solid var(--green);
+	background-color: rgba(255,255,255,.2);
+}
+
+
+.carousel{
+	width: 100%;
+	height: 100vh;
+}
+.carousel-text{
+	font-size: 6em;
+	font-family: 'GeosansLight', sans-serif;
+	text-align: center;
+}
+.carousel-text2{
+	font-size: 4em;
+	color: var(--green);
+	font-family: 'GeosansLight', sans-serif;
+	text-align: center;
+}
+
+.bg-principal{
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: rgba(0,0,0,.5);
+}
+
+.navbar {
+  font-family: 'AlegreSans';
+}
+.slogan{
+	width: 100%;
+}
+.los{
+	width: 100px;
+}
+.duenos{
+	width: 200px;
+}
+.dela{
+	width: 150px;
+}
+.fiesta{
+	width: 200px;
+}
+
+
+
+
+
+/*BIO*/
+.bg-degradado{
+	width: 100%;
+	height: 100%;
+	transform: translateX(30deg);
+    background: linear-gradient(-45deg, var(--green),var(--greendark),var(--yellowdark), var(--yellowdark),var(--yellow));
+    opacity: .8;
+}
+.bg-bio{
+	width: 100%;
+	height: 100%;
+	background-position: center;
+	background-size: cover;
+	background-image: url('../images/bio.png');
+	background-attachment: fixed;
+}
+.contenido{
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}					
+.contenido p{
+	text-align: center;
+	color: var(--dark);
+	font-family: 'GeosansLight';
+	font-size: 1.5em;
+}
+
+
+
+
+/*MUSICA*/
+.bg-fumancheros{
+	width: 100%;
+	height: 100%;
+	background-color: rgba(255,255,255,.9);
+}
+.fumancheros{
+	width: 700px;
+}
+#reproductor {
+    width: 100%;
+}
+.btn-random{
+	background-color: var(--white);
+	color: var(--dark);
+}
+.btn-random:hover{
+	background-color: var(--light);
+	color: var(--green);
+}
+.img-album{
+	background-color: var(--white);
+	background-color: red;
+}
+
+
+
+
+
+/*DISCOS*/
+.bg-albums{
+	width: 100%;
+	height: 100%;
+	background-color: rgba(255,255,255,1);
+	box-shadow: 0 10px 10px rgba(0,0,0,.5);
+}
+.img-albums{
+	position: relative;
+  	width: 30%;
+}
+.img-albums img{
+	width: auto;
+	height: auto;
+}
+.img-albums .overlay-albums{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: rgba(0,0,0,.5);
+ 	overflow: hidden;
+	width: 100%;
+	height: 100%;
+	color: transparent;
+	transition: .5s ease;
+}
+.overlay-text{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	color: var(--dark);
+	background: rgba(10,200,20,.5);
+ 	overflow: hidden;
+	width: 100%;
+	height: 0%;
+	transition: .5s ease;
+}
+.overlay-text a{
+	color: var(--dark);
+	font-size: 1.5em;
+	transition: .3s ease-in-out;
+}
+.overlay-text a:hover{
+	color: var(--white);
+	transform: rotate(360deg);
+	font-size: 1.8em;
+}
+.img-albums:hover .overlay-albums {
+	background: rgba(0,0,0,0);
+}
+
+.img-albums:hover .overlay-text {
+	height: 100%;
+}
+
+
+
+
+
+
+/*BOLETOS*/
+.bg-tickets{
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,.8);
+}
+.tickets{
+	color: var(--white);
+	transition: .3s ease-in-out;
+}
+.tickets:hover{
+	background-color: rgba(0,0,0,.1);
+}
+.tickets2{
+	color: var(--white);
+	transition: .3s ease-in-out;
+}
+.tickets2:hover{
+	background-color: rgba(0,0,0,.5);
+}
+.tickets-img{
+		width: 150px;
+	}
+.tickets-title{
+	font-family: 'GeosansLight', sans-serif;
+}
+.tickets-border{
+	width: 1px;
+	height: 100px;
+	background-color: var(--white);
+}
+.btn-tickets{
+	color: var(--white);
+	font-family: 'FjallaOne', sans-serif;
+	background-color: rgba(255,50,50,1);
+	border: 1px solid var(--red);
+	border-radius: 3px;
+	transition: .5s ease-in-out;
+}
+.btn-tickets:hover{
+	color: var(--dark);
+	background-color: var(--yellowdark);
+	border: 1px solid var(--yellowdark);
+}
+
+
+/* VIDEO */
+.video-nuevo{
+
+}
+.video-nuevo a{
+	color: var(--red);
+	font-size: 10em;
+	transition: .3s ease-in-out;
+}
+.video-nuevo a:hover{
+	color: var(--green);
+	font-size: 11em;
+}
+
+
+/*NEWSLETTER*/
+.bg-newsletter{
+	background-position: center;
+	background-repeat: repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	box-shadow: 0 -10px 10px rgba(0,0,0,.5);
+}
+.bg-cover{
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,.7);
+}
+.title-chronicle{
+	color: var(--white);
+	text-transform: uppercase;
+	font-family: 'AlegreSans','sans-serif';
+	font-size: 2.5em;
+	border-top: 2px solid rgba(255,255,255,1);
+	border-bottom: 2px solid rgba(255,255,255,1);
+}
+.img-box-chronicle{
+	width: 100%;
+	height: 200px;
+	position: relative;
+	overflow: hidden;
+}	
+.img-chronicle{
+	width: 100%;
+	position: absolute;
+	transition: .3s ease-in-out;
+}
+.img-chronicle:hover{
+	transform:scale(1.20);
+}
+.chronicle-overlay{
+
+}
+
+
+
+
+/*PARTNERS*/
+.img-partner img{
+	-webkit-filter: brightness(0%);
+    filter: brightness(0%);
+}
+
+
+
+
+
+
+/*FOOTER*/
+footer{
+	background-color: var(--dark);
+}
+.developer{
+	color: rgba(255,255,255,.5);
+}
+.social{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	list-style: none;
+
+}
+.social li{
+	text-decoration: none;
+}
+.social li a{
+	color: rgba(255,255,255,.5);
+	font-size: 1.5em;
+	transition: .3s ease-in-out;
+}
+.social li a:hover{
+	color: rgba(255,255,255,1);
+}
+.form-footer{
+	width: 100%;
+}
+.form-footer input{
+	width: 100%;
+	color: rgba(255,255,225,.5);
+	padding: 10px;
+	border: none;
+	background-color: rgba(255,255,255,.1);
+	transition: .3s ease-in-out;
+}
+.form-footer input:hover{
+	color: rgba(0,0,0,.5);
+	background-color: rgba(255,255,255,.5);
+}
+.form-footer input:focus{
+	color: rgba(0,0,0,.5);
+	background-color: rgba(255,255,255,1);
+}
+.hiring{
+	color: rgba(255,255,255,.8);
+}
+.telephone{
+
+}
+.address{
+
+}
+.border{
+	border-top: 10px dotted rgba(255,255,255,.5);
+}
+
+
+
+/*GALERIA*/
+.bg-galeria{
+	width: 100%;
+	height: 100%;
+	background-color: rgba(255,255,255,1);
+}
+.container-gallery{
+
+}
+.img-gallery{
+	position: relative;
+}
+
+.title-gallery{
+	position: absolute;
+	padding: 5px;
+
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+.overlay-gallery{
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: rgba(20,255,20,.2);
+}
+
+
+/*ALBUMS*/
+
+
+.header-album{
+	width: 100%;
+	height: 100%;
+	background-position: center;
+	background-size: cover;
+}
+.img-header-album{
+	width: 20%;
+	background-color: var(--white);
+	padding: 5px;
+	transition: .5s ease-in-out;
+}
+.img-header-album:hover{
+	transform: rotateY(380deg);
+	box-shadow: 0 0 18px rgba(0,0,0,.5);
+}
+.text-header-album{
+	font-size: 1.4em;
+	font-weight: bolder;
+}
+.container-tracks{
+
+}
+.container-tracks ul  {
+	background-color: rgba(0,0,0,.1);
+	border-bottom: 1px solid var(--green);
+	transition: .3s ease-in-out;
+}
+.container-tracks ul li {
+
+}
+.play-audio{
+
+}
+.play-audio p{
+	width: 100%;
+}
+.options-album{
+
+}
+.btn-video{
+	color: var(--dark);
+}
+.btn-video:hover{	
+	color: var(--red);
+	transition: .3s ease-in-out;
+}
+.album-border{
+	width: 30%;
+	height: 1px;
+	background-color: var(--white);
+}
+.video-youtube{
+	width: 100%;
+	height: 560px;
+}
+.border-title{
+	width: 50%;
+	height: 10px;
+	background-color: var(--green);
+	transition: .3s ease-in-out;
+}
+.border-title:hover{
+	width: 30%;
+}
+
+
+.text-album{
+	font-family: 'GeosansLight', sans-serif;
+	font-size: 1.2em;
+}
+
+.buy-album{
+
+}
+.btn-buy{
+	color: var(--white);
+	border-radius: 3px;
+	background-color: var(--green);
+	transition: .5s ease;
+}
+.btn-buy:hover{
+	color: var(--dark);
+	border-radius: 3px;
+	background-color: var(--yellow);
+}
+
+
+/*CONCIERTOS*/
+.header-conciertos{
+	width: 100%;
+	height: 100%;
+	background-image: url('../images/conciertos/fumancheros-conciertos.jpg');
+	background-position: center;
+	background-size: cover;
+}
+.bg-dark-alpha{
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,.7);
+}
+.img-conciertos{
+	width: 500px;
+}
+
+
+
+
+
+
+
+.compartir-redes{
+  border-bottom: 1px solid var(--gray);
+}
+.compartir-redes a{
+  text-decoration: none;
+}
+.compartir-redes a{
+  font-size: 1.5em;
+  color: var(--dark);
+  margin-left: 5px;
+  margin-right: 5px;
+  width: 40px;
+  height: 40px;
+  border-radius: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: .3s;
+}
+.compartir-redes a:hover{
+  font-size: 1.2em;
+  border-bottom: 10px solid var(--dark);
+  background-color: var(--yellowdark);
+}
+
+
+
+
+
+
+
+
+@media (max-width: 1200px) {
+	h1{
+		font-size: 3.5em;
+	}
+	h2{
+		font-size: 3em;
+	}
+	h3{
+		font-size: 1.7em;
+	}
+	.logo{
+		width: 150px;
+	}
+	.fumancheros{
+		width: 250px;
+	}
+	#player .cover {
+	    width: 75%;
+	}
+	.img-conciertos{
+		width: 400px;
+	}
+
+}
+
+@media (max-width: 992px) {
+	 h1{
+		font-size: 3.5em;
+	}
+	h2{
+		font-size: 2.7em;
+	}
+	h3{
+		font-size: 2.2em;
+	}
+	.img-header-album{
+		width: 30%;
+		background-color: var(--white);
+		padding: 5px;
+		transition: .5s ease-in-out;
+	}
+	.img-conciertos{
+		width: 350px;
+	}
+
+}
+
+@media (max-width: 768px) {
+	h1{
+		font-size: 3em;
+	}
+	h2{
+		font-size: 2.5em;
+	}
+	h3{
+		font-size: 1.9em;
+	}
+	.logo{
+		width: 120px;
+	
+	}
+	.slogan{
+		width: 100%;
+	}
+	.los{
+		width: 125px;
+	}
+	.duenos{
+		width: 125px;
+	}
+	.dela{
+		width: 100px;
+	}
+	.fiesta{
+		width: 125px;
+	}
+	#player .cover {
+	    width: 35%;
+	}
+	.tickets{
+		width: 40%;
+		color: var(--white);
+		transition: .3s ease-in-out;
+	}
+	.tickets-img{
+		width: 100%;
+	}
+	.tickets-border{
+		width: 100%;
+		height: 1px;
+	}
+	.img-conciertos{
+		width: 300px;
+	}
+
+}
+
+@media (max-width: 576px) {
+	h1{
+		font-size: 2.5em;
+	}
+	h2{
+		font-size: 2em;
+	}
+	h3{
+		font-size: 1.8em;
+	}
+	.logo{
+		width: 100px;
+	
+	}
+	.slogan{
+		width: 100%;
+	}
+	.los{
+		width: 100px;
+	}
+	.duenos{
+		width: 100px;
+	}
+	.dela{
+		width: 85px;
+	}
+	.fiesta{
+		width: 100px;
+	}
+	.fumancheros{
+		width: 250px;
+	}
+	.tickets{
+		width: 50%;
+	}
+	.overlay-text{
+		font-size: 1em;
+	}
+	
+}
+@media (max-width: 480px) {
+	.fumancheros{
+		width: 190px;
+	}
+	#player .cover {
+	    width: 40%;
+	}
+	#player .trackinfo #title {
+	    font-size: 20px;
+	}
+	#player .trackinfo #artist {
+		font-size: 20px;
+	}
+	.social li a{
+		color: rgba(255,255,255,.5);
+		font-size: 1em;
+		transition: .3s ease-in-out;
+	}
+	.tickets{
+		width: 60%;
+	}
+	.img-header-album{
+		width: 50%;
+		background-color: var(--white);
+		padding: 5px;
+		transition: .5s ease-in-out;
+	}
+	.img-conciertos{
+		width: 250px;
+	}
+	.contenido p{
+		text-align: center;
+		color: var(--dark);
+		font-family: 'GeosansLight';
+		font-size: 1em;
+	}
+
+}
+@media (max-width: 360px) {
+	.btn-musica{
+		padding-right: 25px;
+		padding-left: 25px;
+	}
+	.btn-videos{
+		padding-right: 25px;
+		padding-left: 25px;
+	}
+	.fumancheros{
+		width: 220px;
+	}
+	#player .cover {
+	    width: 40%;
+	}
+	#player .trackinfo #title {
+	    font-size: 20px;
+	}
+	#player .trackinfo #artist {
+		font-size: 20px;
+	}
+	.tickets{
+		width: 75%;
+	}
+}
+@media (max-width: 320px) {
+	h1{
+		font-size: 2.5em;
+	}
+	h2{
+		font-size: 2em;
+	}
+	h3{
+		font-size: 1.8em;
+	}
+	.fumancheros{
+		width: 130px;
+	}
+	#player .cover {
+	    width: 35%;
+	}
+	#player .trackinfo #title {
+	    font-size: 20px;
+	}
+	#player .trackinfo #artist {
+		font-size: 20px;
+	}
+	.tickets{
+		width: 70%;
+	}
+}

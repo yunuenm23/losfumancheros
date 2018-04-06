@@ -1,0 +1,53 @@
+{% extends 'layout.twig' %}
+
+{% block noticias %}
+
+	<div class="white">
+		<div id="fb-root"></div>
+
+	<div class="container-fluid">
+		<div class="titulo py-2">
+			<h3 class="text-yellowdark text-uppercase">Noticias</h3>
+		</div>
+	</div>
+
+	<div class="container py-5">		
+		<div class="row">
+		<div class="col-1"></div>
+			{% for noticia in noticias %}
+			<div class="col-lg-8 col-sm-12 d-flex flex-column wow fadeInUp" wow-data-duration="2s" wow-data-delay="1s">
+					<h1>{{ noticia.title }}</h1>
+					<div class="d-flex"><h4>Publicado:</h4>
+						<h4 class="text-warning mx-2">{{ noticia.date }}</h4>
+					</div>
+					<div class="border-title my-1"></div>
+					
+					<div class="">
+						<img src="{{ noticia.thumb }}" alt="" width="100%">
+					</div>
+					<div class="px-3"><p>{{ noticia.description[start:500]|raw}}</p></div>
+					<div class="social-share pt-4 d-flex justify-content-end">
+						<a href="{{ 'vernoticia/' | url }}{{ noticia.id }}" class="btn-onlytext text-dark"><span>Ver publicación</span></a>
+					</div>
+			</div>
+		</div>
+			{% endfor %}
+			<div class="col-lg-2 col-sm-12 d-flex flex-column">
+				<div class="">
+					{% for adword in adwords %}
+      					<div style="width:100%; height:100%;">{{ adword.script|raw }}</div>
+    				{% endfor %}
+				</div>
+    			<div class="py-2">
+					<a href="https://twitter.com/los_fumancheros?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large" data-lang="es" data-show-count="false">Seguir @lsofumancheros</a>
+    				<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    			</div>
+			</div>
+			<div class="col-1"></div>		
+		</div>
+	</div>
+
+	</div>	
+
+
+{% endblock %}

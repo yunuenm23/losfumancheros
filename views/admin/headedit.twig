@@ -1,0 +1,49 @@
+{% extends 'layoutAdminExtra.twig' %}
+
+{% block headedit %}
+
+<div class="container white">
+	<div class="row  py-5">
+		<h2>CABECERA</h2>
+		<div class="col-12 d-flex justify-content-start">
+			<a class="btn btn-danger mx-1" href="{{ 'admin/head' | url }}">
+				<i class="fas fa-undo fa-2x"></i>
+			</a>
+			<a class="btn btn-danger mx-1" href="{{ 'admin' | url }}">
+				<i class="fas fa-home fa-2x"></i>
+			</a>
+		</div>
+
+		<div class="col-sm-12">
+			<div class="" id="footer">
+				<h3>Editar</h3>
+				{% for heads in head %}
+				<form method="post" class="white my-3 p-3" enctype="multipart/form-data">
+					<div class="form-group">
+						<h4>Titulo del Sitio Web</h4>
+						<input type="text" class="form-control" name="sititle" placeholder="Nombre del sitio"  value="{{ heads.sititle }}" onblur="may(this.value, this.id)">
+					</div>
+					<div class="form-group py-1">
+						<h4>Descripción del Sitio Web</h4>
+						<textarea rows="4" class="form-control" name="description" placeholder="Descripción del sitio">{{ heads.description }}</textarea>
+					</div>
+					<div class="form-group">
+						<h4>Palabras Clave</h4>
+						<input type="text" class="form-control" name="keywords" placeholder="Palabras clave" value="{{ heads.keywords }}" onblur="may(this.value, this.id)">
+						<p class="text-danger">Las palabras clave son las que buscan los navegadores para encontrar sitios relacionados.</p>
+					</div>
+					<div class="form-group">
+						<h4>Desarollador del Sitio Web</h4>
+						<input type="text" class="form-control" name="author" placeholder="Autor del sitio" value="{{ heads.author }}" onblur="may(this.value, this.id)">
+					</div>
+					<input type="hidden" name="id" value="{{ heads.id }}">
+					<button type="submit" class="btn btn-danger text-uppercase"><h4>Guardar</h4></button>
+				</form>
+				{% endfor %}
+			</div>
+		</div>
+
+	</div>
+</div>
+
+{% endblock %}

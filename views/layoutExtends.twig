@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+{% for heads in head %}
+<title>{{ heads.sititle }}</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<meta name="description" content="{{ heads.description }}">
+<meta name="keywords" content="{{ heads.keywords }}">
+<meta name="author" content="{{ heads.author }}">
+{% endfor %}
+{% for facebookshare in chronicles %}
+<meta property="og:url"           content="http://www.losfumancheros.com.mx/{{  facebookshare.title }}" />
+<meta property="og:type"          content="article" />
+<meta property="og:title"         content="{{  facebookshare.title }}" />
+<meta property="og:description"   content="{{  facebookshare.description }}" />
+<meta property="og:image"         content="https://www.losfumancheros.com.mx/{{  facebookshare.thumbnail }}" /
+{% endfor %}
+<link rel="apple-touch-icon" sizes="57x57" href="../favicons/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="../favicons/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../favicons/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="../favicons/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../favicons/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="../favicons/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="../favicons/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="../favicons/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../favicons/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="favicons/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="../favicons/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../favicons/favicon-16x16.png">
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.css"> 
+<link rel="stylesheet" type="text/css" href="../css/style.css">
+<link rel="stylesheet" type="text/css" href="../css/lib/animate.css">
+<link rel="stylesheet" type="text/css" href="../css/lib/skippr.css">
+<link rel="stylesheet" type="text/css" href="../css/lib/owl.carousel.css">
+<link rel="stylesheet" type="text/css" href="../css/lib/slick.css">
+<link rel="stylesheet" type="text/css" href="../css/lib/slick-theme.css">
+<link rel="stylesheet" type="text/css" href="../css/lib/owl.theme.default.css">
+<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+<script src="../js/lib/wow.js"></script>
+<script>
+        new WOW().init();
+</script> 
+<body>
+<script>
+		(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = 'https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.12';
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+</script>
+<nav id="menu" class="navbar navbar-expand-lg navbar-dark bg-menu">
+	<div class="container d-flex justify-content-around justify-lg-content-center align-items-center">
+	<a class="navbar-brand px-2" href="{{ '' | url }}">
+		<img src="../images/logo.png" class="logo d-flex alt=">
+	</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<center>
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav d-flex align-items-center">
+			    <li class="nav-item px-2">
+			        <a class="nav-link" href="{{ '' | url }}"><h3>Inicio</h3></a>
+			    </li>
+			    <li class="nav-item">
+			        <a class="nav-link px-2" href="{{ 'tienda' | url }}"><h3>Tienda</h3></a>
+			    </li>
+			    <li class="nav-item px-2">
+			       <a class="nav-link" href="{{ 'conciertos' | url }}"><h3>Conciertos</h3></a>
+			    </li>
+			    <li class="nav-item px-2">
+			       <a class="nav-link" href="{{ 'noticias' | url }}"><h3>Noticias</h3></a>
+			    </li>
+			    <li class="nav-item px-2">
+			       <a class="nav-link cursor" data-toggle="modal" data-target="#contacto"><h3>Contacto</h3></a>
+			    </li>
+			</ul>
+		</div>
+	</center>
+	</div>
+</nav>
+<!-- MODAL CONTACTO -->
+<div class="modal fade" id="contacto" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+	   	<div class="modal-content contacto">
+	      <div class="modal-header">
+	        <h2 class="modal-title text-yellow" id="exampleModalLongTitle">Contacto</h2>
+	        <a class="cerrar" data-dismiss="modal"><i class="far fa-window-close fa-3x"></i></a>
+	      </div>
+	      <div class="modal-body">
+	        <form class="form-contacto">
+			  <div class="form-contacto-group d-flex">
+			    <label for="correo"><i class="fas fa-at fa-2x p-1"></i></label>
+			    <input type="email" id="correo" aria-describedby="emailHelp" placeholder="Correo electrónico" required>
+			  </div>
+			  <div class="form-contacto-group d-flex">
+			    <label for="asunto">Asunto</label>
+			    <input type="text" id="asunto" placeholder="Asunto">
+			  </div>
+			  <div class="form-contacto-group d-flex">
+			    <label for="mensaje"><i class="far fa-comments fa-3x p-1"></i></label>
+			    <textarea rows="7" id="mensaje" placeholder="Mensaje" required></textarea>
+			  </div>
+			  <button type="submit" class="btn btn-success text-uppercase">Enviar</button>
+			</form>
+	      </div>
+	   	</div>
+	</div>
+</div>
+
+{% block album %}
+
+{% endblock %}
+
+{% block vernoticia %}
+
+{% endblock %}
+
+{% block video %}
+
+{% endblock %}
+
+
+<footer>
+	{% for footers in footer %}
+	<div class="container">
+		<div class="row py-2">
+			<div class="col-lg-4 col-sm-12 newsletter pt-3">
+				<h4 class="text-uppercase text-white">Newsletter</h4>
+				<form class="form-footer" method="post" enctype="multipart/form-data">
+					<input type="text" class="mb-2" placeholder="Nombre" name="name" required>
+					<input type="text" class="mb-2" placeholder="Ciudad" name="city" required>
+					<input type="email" class="mb-2" placeholder="Correo electrónico" name="email" required>
+					<button class="btn btn-danger mt-3" type="submit">Suscribirse</button>
+				</form>
+			</div>
+			<div class="col-lg-8 col-sm-12 text-right hiring pt-3">
+				<h4 class="text-white">Contrataciones y Promoción</h4>
+				<div class="telephone d-flex justify-content-end align-items-center py-2"><i class="text-green fas fa-mobile fa-2x mx-1"></i>{{ footers.hiring }}</div>
+				<div class="address d-flex justify-content-end align-items-center py-2"><i class="text-green fas fa-map-marker fa-2x mx-2"></i>{{ footers.city }}</div>
+			</div>
+		</div>
+		<div class="">
+			<ul class="social py-2">
+				<li><a class="mx-3" href="{{ footers.facebook }}" target="_blank"><i class="fab fa-facebook-f fa-2x"></i></a></li>
+				<li><a class="mx-3" href="{{ footers.twitter }}" target="_blank"><i class="fab fa-twitter fa-2x"></i></a></li>
+				<li><a class="mx-3" href="{{ footers.youtube}}" target="_blank"><i class="fab fa-youtube fa-2x"></i></a></li>
+				<li><a class="mx-3" href="{{ footers.instagram }}" target="_blank"><i class="fab fa-instagram fa-2x"></i></a></li>
+			</ul>
+		</div>
+		<div class="developer pt-2 text-center">Copyright © 2018 - All rights reserved</div>
+		<div class="developer pb-2 text-center"><a class="text-white" href="stilo.gdl.mx" target="_blank">{{ footers.developer }}</a></div>
+	</div>
+	{% endfor %}
+</footer>
+	
+	
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="../js/bootstrap.js"></script>
+<script type="text/javascript" src="../js/lib/wow.js"></script>
+<script type="text/javascript" src="../js/lib/reproductor.audio.js"></script>
+<script type="text/javascript" src="../js/lib/skippr.js"></script>
+<script type="text/javascript" src="../js/lib/owl.carousel.js"></script>
+<script type="text/javascript" src="../js/lib/slick.js"></script>
+<script type="text/javascript" src="../js/lib/lazyload.js"></script>
+<script type="text/javascript" src="../js/app.js"></script>
+</body>
+</html> 

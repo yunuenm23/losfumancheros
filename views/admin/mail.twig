@@ -1,0 +1,39 @@
+{% extends 'layoutAdminExtends.twig' %}
+
+{% block mail %}
+
+<div class="container white">
+	<div class="row  py-5">
+		<div class="col-12 d-flex justify-content-start">
+			<a class="btn btn-danger mx-1" href="{{ 'admin' | url }}">
+				<i class="fas fa-undo fa-2x"></i>
+			</a>
+			<a class="btn btn-danger mx-1" href="{{ 'admin' | url }}">
+				<i class="fas fa-home fa-2x"></i>
+			</a>
+		</div>
+
+		<div class="col-sm-12 py-3">
+			<table class="table table-hover white">
+			  <thead class="thead-light">
+			    <tr>
+			    <th scope="col"><h4>Sección</h4></th>
+			      <th scope="col"><h4>Script</h4></th>
+			      <th scope="col"><h4>Modificar</h4></th>
+			    </tr>
+			  </thead>
+			  <tbody class="text-dark">
+				{% for adword in adwords %}
+				<tr>
+					<td class="light">{{ adword.section }}</td>
+					<td>{{ adword.script|raw }}</td>
+			  		<td><a href="{{'admin/adwords/adwordsedit/' | url }}{{ adword.id }}"><i class="text-green far fa-edit fa-2x"></i></a></td>
+				</tr>
+				{% endfor %}
+			  </tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

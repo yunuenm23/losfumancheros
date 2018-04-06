@@ -1,0 +1,44 @@
+{% extends 'layoutAdminExtends.twig' %}
+
+{% block head %}
+
+<div class="container white">
+	<div class="row  py-5">
+		<h2>Cabecera</h2>
+		<div class="col-12 d-flex justify-content-start">
+			<a class="btn btn-danger mx-1" href="{{ 'admin' | url }}">
+				<i class="fas fa-undo fa-2x"></i>
+			</a>
+			<a class="btn btn-danger mx-1" href="{{ 'admin' | url }}">
+				<i class="fas fa-home fa-2x"></i>
+			</a>
+		</div>
+
+		<div class="col-sm-12 py-3">
+			<table class="table table-hover white">
+			  <thead class="thead-light">
+			    <tr class="text-center">
+			    	<th scope="col"><h4>SITIO</h4></th>
+			      	<th scope="col"><h4>DESCRIPCIÓN</h4></th>
+			      	<th scope="col"><h4>PALABRAS CLAVE</h4></th>
+			      	<th scope="col"><h4>AUTOR DEL SITIO</h4></th>
+			      	<th scope="col"><h4>MODIFICAR</h4></th>
+			    </tr>
+			  </thead>
+			  <tbody class="text-dark">
+				{% for heads in head %}
+				<tr>
+					<td><p>{{ heads.sititle }}</p></td>
+					<td><p>{{ heads.description }}</p></td>
+					<td><p>{{ heads.keywords }}</p></td>
+					<td><p>{{ heads.author }}</p></td>
+					<td><a href="{{'admin/head/headedit/' | url }}{{ heads.id }}"><i class="text-green far fa-edit fa-2x"></i></a></td>
+				</tr>
+				{% endfor %}
+			  </tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

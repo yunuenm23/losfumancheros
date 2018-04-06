@@ -1,0 +1,68 @@
+{% extends 'layoutAdminExtra.twig' %}
+
+{% block showsedit %}
+
+<div class="container white">
+	<div class="row  py-5">
+		<div class="col-12 d-flex justify-content-start">
+			<a class="btn btn-danger mx-1" href="{{ 'admin/shows' | url }}">
+				<i class="fas fa-undo fa-2x"></i>
+			</a>
+			<a class="btn btn-danger mx-1" href="{{ 'admin' | url }}">
+				<i class="fas fa-home fa-2x"></i>
+			</a>
+		</div>
+		<div class="col-12">
+			<div class="" id="newuser">
+				{% for show in shows %}
+				<form method="post" class="white my-3 p-3" enctype="multipart/form-data">
+					<h3 class="bolder">Nuevo concierto</h3>
+					<div class="form-group">
+						<h4>Titulo</h4>
+						<input type="text" class="form-control" name="title" value="{{ show.title }}" placeholder="Nombre" onblur="may(this.value, this.id)">
+					</div>
+					<div class="form-group">
+						<h4>Fecha</h4>
+						<input type="date" class="form-control" name="date" value="{{ show.date }}" placeholder="Fecha" onblur="may(this.value, this.id)">
+					</div>
+					<div class="form-group">
+						<h4>Hora</h4>
+						<input type="time" class="form-control" name="time" value="{{ show.time }}" placeholder="Hora" onblur="may(this.value, this.id)">
+					</div>
+					<div class="form-group">
+						<h4>Lugar del evento</h4>
+						<input type="text" class="form-control" name="city" value="{{ show.city }}" placeholder="Lugar del concierto" required>
+					</div>
+					<div class="form-group">
+						<h4>Url de boletos</h4>
+						<input type="text" class="form-control" name="tickets_url" value="{{ show.tickets_url }}" placeholder="Url de boletos" onblur="may(this.value, this.id)">
+					</div>
+					<div class="form-group">
+						<h4>Url del evento</h4>
+						<input type="text" class="form-control" name="show_url" value="{{ show.show_url }}" placeholder="Url del lugar" onblur="may(this.value, this.id)">
+					</div>
+					<div class="d-flex flex-column">
+				        <h4 class="text-dark py-2">Imagen actual:</h4>
+				        <img class="cursor py-2" src="../../../{{ show.show_img }}" width="30%" data-toggle="modal" data-target="#carousel">
+				      	<!-- Modal -->
+				      	<div class="modal fade" id="carousel" tabindex="-1" role="dialog" aria-hidden="true">
+				        	<div class="modal-dialog modal-dialog-centered  modal-lg" role="document">
+				          		<img class="p-1 white" src="../../../{{ show.show_img }}" width="100%">
+				        	</div>
+				      	</div>
+				    </div>
+					<div class="form-group">
+						<h4 class="text-danger">TAMAÑO RECOMENDADO 400 X 400</h4>
+						<input type="file" class="form-control" name="show_img" value="{{ show.show_img }}">
+					</div>
+					
+					<input type="hidden" name="id" value="{{ show.id }}"></input>
+					<button type="submit" class="btn btn-danger text-uppercase"><h4>Guardar</h4></button>
+				</form>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

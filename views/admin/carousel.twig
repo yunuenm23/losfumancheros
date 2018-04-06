@@ -1,0 +1,81 @@
+{% extends 'layoutAdminExtends.twig' %}
+
+{% block carousel %}
+
+<div class="container white">
+	<div class="row  py-5">
+		<h2>Carousel</h2>
+		<div class="col-12 d-flex justify-content-start">
+			<a class="btn btn-danger mx-1" href="{{ 'admin' | url }}">
+				<i class="fas fa-undo fa-2x"></i>
+			</a>
+			<a class="btn btn-danger mx-1" href="{{ 'admin' | url }}">
+				<i class="fas fa-home fa-2x"></i>
+			</a>
+			<a class="btn btn-danger mx-1" data-toggle="collapse" href="#newuser" role="button" aria-expanded="false" aria-controls="collapseExample">
+				<i class="fas fa-images fa-2x"></i>
+			</a>
+		</div>
+		<div class="col-12">
+			<div class="collapse" id="newuser">
+				<form method="post" class="white my-3 p-3" enctype="multipart/form-data">
+					<h3 class="bolder">Nuevo Carousel</h3>
+					<div class="form-group">
+						<h4>Sección = 1 imagen principal, sección = 2 se agrega como carousel.</h4>
+						<input type="number" class="form-control" name="section" placeholder="Sección" value="{{ carousels.section }}" onblur="may(this.value, this.id)">
+					</div>
+					<div class="form-group">
+						<h4>Titulo</h4>
+						<input type="text" class="form-control" name="title" placeholder="Titulo" onblur="may(this.value, this.id)">
+					</div>
+					<div class="form-group">
+						<h4>Subtitulo</h4>
+						<input type="text" class="form-control" name="subtitle" placeholder="Subtitulo" onblur="may(this.value, this.id)">
+					</div>
+					<div class="form-group">
+						<h4>Url</h4>
+						<input type="text" class="form-control" name="button" placeholder="Link del botón" required>
+					</div>
+					<div class="form-group">
+						<h4 class="text-danger">Tamaño recomendado: 1920 x 1080</h4>
+						<input type="file" class="form-control" name="carousel" required>
+					</div>
+					<button type="submit" class="btn btn-danger text-uppercase"><i class="fas fa-plus"></i></button>
+				</form>
+			</div>
+		</div>
+
+		<div class="col-12 py-3">
+			<table class="table table-hover white">
+			  <thead class="thead-light">
+			    <tr>
+			      <th scope="col"><h4>SECCION</h4></th>
+			      <th scope="col"><h4>TITULO</h4></th>
+			      <th scope="col"><h4>SUBTITULO</h4></th>
+			      <th scope="col"><h4>URL</h4></th>
+			      <th scope="col"><h4>IMAGEN</h4></th>
+			      <th scope="col"><h4>EDITAR</h4></th>
+			      <th scope="col"><h4>ELIMINAR</h4></th>
+			    </tr>
+			  </thead>
+			  <tbody class="text-dark">
+				{% for carousels in carousel %}
+				<tr>
+					<td class="light"><p>{{ carousels.section }}</p></td>
+			  		<td><p>{{ carousels.title }}</p></td>
+			  		<td><p>{{ carousels.subtitle }}</p></td>
+			  		<td><p>{{ carousels.button }}</p></td>
+			  		<td>
+			  			<a><img src="../{{ carousels.carousel }}" width="150px"></a>
+			  		</td>
+			  		<td><a href="{{'admin/carousel/carouseledit/' | url }}{{ carousels.id }}"><i class="text-green far fa-edit fa-2x"></i></a></td>
+			  		<td><a href="{{'admin/carousel/delete/' | url }}{{ carousels.id }}"><i class="text-danger far fa-times-circle fa-2x text-red"></i></a></td>
+				</tr>
+				{% endfor %}
+			  </tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

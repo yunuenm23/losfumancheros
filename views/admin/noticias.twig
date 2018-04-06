@@ -1,0 +1,87 @@
+{% extends 'layoutAdminExtends.twig' %}
+
+{% block noticias %}
+
+<div class="container white">
+	<div class="row  py-5">
+		<h2>Publiación</h2>
+		<div class="col-12 d-flex justify-content-start">
+			<a class="btn btn-danger mx-1" href="{{ 'admin' | url }}">
+				<i class="fas fa-undo fa-2x"></i>
+			</a>
+			<a class="btn btn-danger mx-1" href="{{ 'admin' | url }}">
+				<i class="fas fa-home fa-2x"></i>
+			</a>
+			<a class="btn btn-danger mx-1" data-toggle="collapse" href="#newuser" role="button" aria-expanded="false" aria-controls="collapseExample">
+				<i class="fas fa-align-center fa-2x"></i>
+			</a>
+		</div>
+		<div class="col-12">
+			<div class="collapse" id="newuser">
+				<form method="post" class="white my-3 p-3" enctype="multipart/form-data">
+					<h3>Nueva publicación</h3>
+					<div class="form-group">
+						<h4>Titulo</h4>
+						<input type="text" class="form-control" name="title" placeholder="Titulo de la publicación" onblur="may(this.value, this.id)">
+					</div>
+					<div class="form-group">
+						<h4>Tweet, texto que aparece al compartir en Twitter</h4>
+						<input type="text" class="form-control" name="tweet" placeholder="Texto del tweet">
+					</div>
+					<div class="form-group">
+						<h4>Fecha</h4>
+						<input type="date" class="form-control" name="date" placeholder="Fecha">
+					</div>
+					<div class="form-group">
+						<h4>Descripción</h4>
+						<textarea id="editor1" name="description" rows="25" class="p-4"></textarea>
+						<script>
+						    CKEDITOR.replace( 'editor1' );
+						</script>
+					</div>
+					<div class="form-group">
+						<h4>Código de Youtube</h4>
+						<input type="text" class="form-control" name="video" placeholder="Código de youtube">
+					</div>
+
+					<h4>Thumbnail</h4><h4 class="text-danger">TAMAÑO RECOMENDADO: 800 X 600</h4>
+					<div class="form-group py-1">
+						<input type="file" class="form-control" id="image" name="image" required>
+					</div>
+					<button type="submit" class="btn btn-danger text-uppercase"><i class="fas fa-plus"></i></button>
+				</form>
+			</div>
+		</div>
+
+		<div class="col-sm-12 py-3">
+			<table class="table table-hover white">
+			  <thead class="thead-light">
+			    <tr>
+			      <th scope="col"><h4>Titulo</h4></th>
+			      <th scope="col"><h4>Tweet</h4></th>
+			      <th scope="col"><h4>Fecha</h4></th>
+			      <th scope="col"><h4>Código de Youtube</h4></th>
+			      <th scope="col"><h4>Thumbnail</h4></th>
+			      <th scope="col"><h4>Modificar</h4></th>
+			      <th scope="col"><h4>Eliminar</h4></th>
+			    </tr>
+			  </thead>
+			  <tbody class="text-dark">
+				{% for noticias in noticia %}
+				<tr>
+			  		<td><p>{{ noticias.title }}</p></td>
+			  		<td><p>{{ noticias.tweet }}</p></td>
+			  		<td><p>{{ noticias.date }}</p></td>
+			  		<td><p>{{ noticias.video|raw }}</p></td>
+			  		<td><a><img src="../{{ noticias.thumb }}" width="150px"></a></td>
+			  		<td><a href="{{'admin/noticias/editarnoticias/' | url }}{{ noticias.id }}"><i class="text-green far fa-edit fa-2x"></i></a></td>
+			  		<td><a href="{{'admin/noticias/delete/' | url }}{{ noticias.id }}"><i class="text-danger far fa-times-circle fa-2x text-red"></i></a></td>
+				</tr>
+				{% endfor %}
+			  </tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

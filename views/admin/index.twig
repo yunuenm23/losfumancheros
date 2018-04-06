@@ -1,0 +1,122 @@
+{% extends 'layoutAdmin.twig' %}
+
+{% block admin %}
+
+<div class="bg-contenedor">
+	<div class="white pb-5">
+		<div class="container px-2">
+			<div class="box-user d-flex flex-column justify-content-center align-items-center text-center py-2">
+				<div class="img-profile">
+					<a href="{{'admin/users/useredit/' | url }}{{ user.id }}"><img class="rounded-circle user-img" src="{{ user.profile_photo }}" width="100%" height="100%" alt="profile-user"></a>
+				</div>
+				<h3 class="text-warning">{{ user.username }}</h3>
+				<h4 class="text-dark">{{ user.email }}</h4>
+			</div>
+		</div>
+
+		<div class="row white ">
+			<div class=" col-12 text-center ">
+				<div class=" d-flex flex-column justify-content-center align-items-center p-2">
+					<a class="btn btn-admin d-flex justify-content-center align-items-center" href="{{ 'admin/head' | url }}">
+						<i class="fas fa-info fa-3x"></i>
+					</a>
+					<h3 class="text-dark">Encabezado</h3>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6 col-sm-12 text-center ">
+				<div class=" d-flex flex-column justify-content-center align-items-center p-2">
+					<a class="btn btn-admin d-flex justify-content-center align-items-center" href="{{ 'admin/users' | url }}">
+						<i class="fas fa-users fa-3x"></i>
+					</a>
+					<h3 class="text-dark">Usuarios</h3>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6 col-sm-12 text-center ">
+				<div class=" d-flex flex-column justify-content-center align-items-center py-2">
+					<a class="btn btn-admin d-flex justify-content-center align-items-center" href="{{ 'admin/bio' | url }}">
+						<i class="fas fa-align-left fa-3x"></i>
+					</a>
+					<h3 class="text-dark">Biografía</h3>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6 col-sm-12 text-center ">
+				<div class=" d-flex flex-column justify-content-center align-items-center py-2">
+					<a class="btn btn-admin d-flex justify-content-center align-items-center" href="{{ 'admin/carousel' | url }}">
+						<i class="far fa-images fa-3x"></i>
+					</a>
+					<h3 class="text-dark">Carousel</h3>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6 col-sm-12 text-center">
+				<div class="admin d-flex flex-column justify-content-center align-items-center py-2">
+					<a class="btn btn-admin d-flex justify-content-center align-items-center" href="{{ 'admin/album' | url }}">
+						<i class="fas fa-music fa-3x"></i>
+					</a>
+					<h3 class="text-dark">Álbums</h3>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6 col-sm-12 text-center">
+				<div class="admin d-flex flex-column justify-content-center align-items-center py-2">
+					<a class="btn btn-admin d-flex justify-content-center align-items-center" href="{{ 'admin/shows' | url }}">
+						<i class="fas fa-microphone fa-3x"></i>
+					</a>
+					<h3 class="text-dark">Conciertos</h3>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6 col-sm-12 text-center ">
+				<div class=" d-flex flex-column justify-content-center align-items-center py-2">
+					<a class="btn btn-admin d-flex justify-content-center align-items-center" href="{{ 'admin/noticias' | url }}">
+						<i class="fas fa-align-center fa-3x"></i>
+					</a>
+					<h3 class="text-dark">Noticias</h3>
+				</div>
+			</div>
+			<div class=" col-12 text-center ">
+				<div class=" d-flex flex-column justify-content-center align-items-center p-2">
+					<a class="btn btn-admin d-flex justify-content-center align-items-center" href="{{ 'admin/videonuevo' | url }}">
+						<i class="fab fa-youtube fa-3x"></i>
+					</a>
+					<h3 class="text-dark">Video Nuevo</h3>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6 col-sm-12 text-center ">
+				<div class=" d-flex flex-column justify-content-center align-items-center py-2">
+					<a class="btn btn-admin d-flex justify-content-center align-items-center" href="{{ 'admin/adwords' | url }}">
+						<i class="fab fa-adversal fa-3x"></i>
+					</a>
+					<h3 class="text-dark">Google Adwords</h3>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6 col-sm-12 text-center ">
+				<div class=" d-flex flex-column justify-content-center align-items-center py-2">
+					<a class="btn btn-admin d-flex justify-content-center align-items-center" href="{{ 'admin/partners' | url }}">
+						<i class="far fa-money-bill-alt fa-3x"></i>
+					</a>
+					<h3 class="text-dark">Patrocinadores</h3>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6 col-sm-12 text-center ">
+				<div class=" d-flex flex-column justify-content-center align-items-center py-2">
+					<a class="btn btn-admin d-flex justify-content-center align-items-center" href="{{ 'admin/newsletter' | url }}">
+						<i class="far fa-newspaper fa-3x"></i>
+					</a>
+					<h3 class="text-dark">Newsletter</h3>
+				</div>
+			</div>
+
+			<div class=" col-12 text-center ">
+				<div class=" d-flex flex-column justify-content-center align-items-center p-2">
+					<a class="btn btn-admin d-flex justify-content-center align-items-center" href="{{ 'admin/footer' | url }}">
+						<i class="fas fa-info fa-3x"></i>
+					</a>
+					<h3 class="text-dark">Pie de página</h3>
+				</div>
+			</div>
+			
+		</div>
+
+	</div>
+	</div>
+</div>
+
+{% endblock %}
